@@ -11,11 +11,12 @@ public class Admin {
 		super();
 	}
 
-	public Admin(int id, String username, String password) {
+	public Admin(int id, String username, String password,Role role) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.role = role;
 	}
 
 	public int getId() {
@@ -40,6 +41,14 @@ public class Admin {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 	

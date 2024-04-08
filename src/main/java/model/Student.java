@@ -7,18 +7,20 @@ public class Student {
 	private String lastName;
 	private int age;
 	private String email;
+	private Role role;
 	
 	public Student() {
 		super();
 	}
 
-	public Student(int id, String firstName, String lastName, int age, String email) {
+	public Student(int id, String firstName, String lastName, int age, String email,Role role) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.email = email;
+		this.role = role;
 	}
 
 	public int getId() {
@@ -60,6 +62,15 @@ public class Student {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
 	
 	
 	
