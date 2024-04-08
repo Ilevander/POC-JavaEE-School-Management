@@ -7,18 +7,20 @@ public class Teacher {
 	private String lastName;
 	private String subject;
 	private String email;
+	private Role role;
 	
 	public Teacher() {
 		super();
 	}
 
-	public Teacher(int id, String firstName, String lastName, String subject, String email) {
+	public Teacher(int id, String firstName, String lastName, String subject, String email,Role role) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.subject = subject;
 		this.email = email;
+		this.role = role;
 	}
 
 	public int getId() {
