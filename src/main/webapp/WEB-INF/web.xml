@@ -1,39 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-    <display-name>POC-School-Management</display-name>
-    
-    <!-- JSP Configuration -->
-    <jsp-config>
-        <!-- JSTL Configuration -->
-        <taglib>
-            <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
-            <taglib-location>/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar</taglib-location>
-        </taglib>
-        <taglib>
-            <taglib-uri>http://java.sun.com/jsp/jstl/functions</taglib-uri>
-            <taglib-location>/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar</taglib-location>
-        </taglib>
-        <!-- Configure JSP properties -->
-        <jsp-property-group>
-            <url-pattern>*.jsp</url-pattern>
-            <page-encoding>UTF-8</page-encoding>
-            <trim-directive-whitespaces>true</trim-directive-whitespaces>
-        </jsp-property-group>
-    </jsp-config>
-    <!-- Servlet Configuration -->
-     <servlet>
-	    <servlet-name>TeacherServlet</servlet-name>
-	    <servlet-class>servlet.TeacherServlet</servlet-class>
-     </servlet>
-    <servlet-mapping>
-	    <servlet-name>TeacherServlet</servlet-name>
-	    <url-pattern>/teachers</url-pattern>
-    </servlet-mapping>
-
-    <welcome-file-list>
-        <welcome-file>teachers.jsp</welcome-file>
-    </welcome-file-list>
-    
-</web-app>
+	<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+	    <display-name>POC-School-Management</display-name>
+	    
+	    <!-- JSP Configuration -->
+	    <jsp-config>
+	        <!-- ********************************************************************************************** -->
+	        <!-- JSTL Configuration -->
+	        <taglib>
+	            <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+	            <taglib-location>/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar</taglib-location>
+	        </taglib>
+	        <!-- ___________________ -->
+	        <taglib>
+	            <taglib-uri>http://java.sun.com/jsp/jstl/functions</taglib-uri>
+	            <taglib-location>/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar</taglib-location>
+	        </taglib>
+	        <!-- ********************************************************************************************** -->
+	        <!-- Configure JSP properties -->
+	        <jsp-property-group>
+	            <url-pattern>*.jsp</url-pattern>
+	            <page-encoding>UTF-8</page-encoding>
+	            <trim-directive-whitespaces>true</trim-directive-whitespaces>
+	        </jsp-property-group>
+	    </jsp-config>
+	    <!-- ********************************************************************************************** -->
+	    <!-- Servlet Configuration -->
+	    <!-- Teacher Servlet -->
+	     <servlet>
+		    <servlet-name>TeacherServlet</servlet-name>
+		    <servlet-class>servlet.TeacherServlet</servlet-class>
+	     </servlet>
+	     <!-- Map Teacher Servlets -->
+	    <servlet-mapping>
+		    <servlet-name>TeacherServlet</servlet-name>
+		    <url-pattern>/teachers</url-pattern>
+	    </servlet-mapping>
+	    <servlet-mapping>
+	        <servlet-name>TeacherServlet</servlet-name>
+	        <url-pattern>/add-teacher</url-pattern>
+	    </servlet-mapping>
+	    <servlet>
+		    <servlet-name>AddTeacherServlet</servlet-name>
+		    <servlet-class>servlet.AddTeacherServlet</servlet-class>
+       </servlet>
+		<servlet-mapping>
+		    <servlet-name>AddTeacherServlet</servlet-name>
+		    <url-pattern>/add-teacher</url-pattern>
+		</servlet-mapping>
+	    
+	    <!-- ********************************************************************************************** -->
+	    <welcome-file-list>
+	        <welcome-file>teachers.jsp</welcome-file>
+	    </welcome-file-list>
+	    <!-- ********************************************************************************************** -->
+	</web-app>
 </element>

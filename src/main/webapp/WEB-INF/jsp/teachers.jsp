@@ -35,6 +35,6 @@
             </c:forEach>
         </tbody>
     </table>
-    <a href="add-teacher.jsp">Add Teacher</a>
+    <a href="add-teacher">Add Teacher</a>
 </body>
 </html>
