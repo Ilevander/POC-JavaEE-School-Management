@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
         Subject: <input type="text" name="subject" value="${teacher.subject}"><br>
         Email: <input type="email" name="email" value="${teacher.email}"><br>
         Role: <select name="role">
-            <option value="TEACHER">Teacher</option>
+            <option value="TEACHER" selected>Teacher</option>
             <!-- Add other role options as needed -->
         </select><br>
         <input type="submit" value="Update">

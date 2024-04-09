@@ -29,7 +29,11 @@
                     <td>${teacher.email}</td>
                     <td>
                         <a href="teachers?action=edit&id=${teacher.id}">Edit</a>
-                        <a href="teachers?action=delete&id=${teacher.id}" onclick="return confirm('Are you sure?')">Delete</a>
+                        <a href="teachers?action=delete&id=${teacher.id}" onclick="return confirm('Are you sure you want to delete this teacher?')">Delete</a>
+                        <form action="teachers" method="POST" style="display: inline;">
+                            <input type="hidden" name="action" value="update">
+                            <input type="hidden" name="id" value="${teacher.id}">
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
