@@ -6,19 +6,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import model.Role;
 import model.Teacher;
 import repository.TeacherRepository;
 import repository.TeacherRepositoryImpl;
+import util.ConnectionFactory;
 
 @WebServlet("/add-teacher")
 public class AddTeacherServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private Connection connection;
     private TeacherRepository teacherRepository;
 
     public void init() throws ServletException {
-        teacherRepository = new TeacherRepositoryImpl();
+        try {
+            // Get the connection from ConnectionFactory
+            connection = ConnectionFactory.getConnection();
+            // Initialize the repository using the connection
+            teacherRepository = new TeacherRepositoryImpl(connection);
+        } catch (SQLException e) {
+            throw new ServletException("Error initializing teacher repository", e);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,5 +51,11 @@ public class AddTeacherServlet extends HttpServlet {
 
         // Redirect to the teachers list page after adding the teacher
         response.sendRedirect(request.getContextPath() + "/teachers");
+    }
+
+    public void destroy() {
+        super.destroy();
+        // Connection cleanup should ideally be handled in the finally block after usage
+        ConnectionFactory.closeConnection(connection);
     }
 }
